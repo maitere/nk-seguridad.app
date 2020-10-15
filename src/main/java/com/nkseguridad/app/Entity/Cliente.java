@@ -68,7 +68,8 @@ public class Cliente implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codgrupo", insertable = false, updatable = false)
     private Grupocliente grupocliente;
-	public String getCodcliente() {
+	
+    public String getCodcliente() {
 		return codcliente;
 	}
 	public void setCodcliente(String codcliente) {

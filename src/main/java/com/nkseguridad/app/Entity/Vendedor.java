@@ -2,11 +2,15 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -21,9 +25,12 @@ public class Vendedor implements Serializable {
 	 */
 	private static final long serialVersionUID = 5451031297828660307L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "codigo")
 	private String codigo;	
-	private String nombre;	
+	private String nombre;
 	
+
 	@Column(name = "porcfclimp")
 	private Double porcfclimp;
 	
