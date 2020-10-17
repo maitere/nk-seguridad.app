@@ -15,6 +15,7 @@ public class FacturaService implements IFacturaService {
 
 	@Autowired
 	private IFacturaRepository facturaReposotory;
+	
 	@Override
 	public List<Factura> findAll() {
 		// TODO Auto-generated method stub

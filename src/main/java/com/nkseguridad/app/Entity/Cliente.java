@@ -21,9 +21,10 @@ public class Cliente implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 5790987669513731602L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "codcliente")
+    @Column(name = "codcliente")
 	private String codcliente;
 	
     private String codgrupo;
@@ -61,9 +62,7 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "codnegocio", insertable = false, updatable = false)
     private Negocio negocio;
     
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "codigoruta", insertable = false, updatable = false)
-    private Ruta ruta;
+    
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codgrupo", insertable = false, updatable = false)
@@ -243,12 +242,7 @@ public class Cliente implements Serializable {
 	public void setNegocio(Negocio negocio) {
 		this.negocio = negocio;
 	}
-	public Ruta getRuta() {
-		return ruta;
-	}
-	public void setRuta(Ruta ruta) {
-		this.ruta = ruta;
-	}
+
 	public Grupocliente getGrupocliente() {
 		return grupocliente;
 	}

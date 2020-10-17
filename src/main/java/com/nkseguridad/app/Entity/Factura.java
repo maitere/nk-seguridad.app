@@ -27,6 +27,7 @@ public class Factura implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "numerofactura")
 	private String numerofactura; 
+	
 	private String codnegocio;
     private Date fechaemision;
     private Date fechavencimiento;
@@ -34,6 +35,7 @@ public class Factura implements Serializable {
     private String codigoforma;
     private String codcliente;
     private String referencia;
+    private String codvendedor;
     private String tarifa;
     private String destino;
     private String  mn;
@@ -63,27 +65,37 @@ public class Factura implements Serializable {
     private String numeroz;
     private String status_impresion;
     private String codigoruta;
-    private String codvendedor;
-    
    
-	
-	public String getCodvendedor() {
-		return codvendedor;
-	}
-	public void setCodvendedor(String codvendedor) {
-		this.codvendedor = codvendedor;
-	}
-	
     
     
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigoforma", insertable = false, updatable = false)
+    private FormaPago formapagp;
+    
+    
 	
+	
+	
+	
+	public FormaPago getFormapagp() {
+		return formapagp;
+	}
+	public void setFormapagp(FormaPago formapagp) {
+		this.formapagp = formapagp;
+	}
 	public String getNumerofactura() {
 		return numerofactura;
 	}
 	public void setNumerofactura(String numerofactura) {
 		this.numerofactura = numerofactura;
 	}
+	public String getCodvendedor() {
+		return codvendedor;
+	}
+	public void setCodvendedor(String codvendedor) {
+		this.codvendedor = codvendedor;
+	}
+
 	public String getCodnegocio() {
 		return codnegocio;
 	}
