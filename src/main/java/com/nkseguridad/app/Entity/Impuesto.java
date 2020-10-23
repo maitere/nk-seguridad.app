@@ -3,11 +3,14 @@ package com.nkseguridad.app.Entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,8 +33,32 @@ public class Impuesto implements Serializable {
     private Date fechafin;
     private String status;
     private String codnegocio;
-	public Long getIdimpuesto() {
+    private String nombreimpuesto;
+    private Long idtipoimpuesto;    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idtipoimpuesto",  insertable = false, updatable = false)
+    private TipoImpuesto tipoimpuestos;
+  
+     public Long getIdimpuesto() {
 		return idimpuesto;
+	}
+	public TipoImpuesto getTipoimpuestos() {
+		return tipoimpuestos;
+	}
+	public void setTipoimpuestos(TipoImpuesto tipoimpuestos) {
+		this.tipoimpuestos = tipoimpuestos;
+	}
+	public String getNombreimpuesto() {
+		return nombreimpuesto;
+	}
+	public void setNombreimpuesto(String nombreimpuesto) {
+		this.nombreimpuesto = nombreimpuesto;
+	}
+	public Long getIdtipoimpuesto() {
+		return idtipoimpuesto;
+	}
+	public void setIdtipoimpuesto(Long idtipoimpuesto) {
+		this.idtipoimpuesto = idtipoimpuesto;
 	}
 	public void setIdimpuesto(Long idimpuesto) {
 		this.idimpuesto = idimpuesto;
